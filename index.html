@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geschützte Seite</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        #content { display: none; } /* Versteckt den Inhalt, bis das Passwort eingegeben wurde */
+    </style>
+</head>
+<body>
+
+    <div id="login">
+        <h2>🔒 Bitte Passwort eingeben:</h2>
+        <input type="password" id="passwordInput" placeholder="Passwort">
+        <button onclick="checkPassword()">Login</button>
+        <p id="errorMessage" style="color: red; display: none;">❌ Falsches Passwort!</p>
+    </div>
+
+    <div id="content">
+        <h1>Willkommen! 🎉</h1>
+        <p>Hier ist der geheime Inhalt.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            var correctPassword = window.config.correctPassword;
+
+            if (btoa(password) === correctPassword) {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+    <script src="password.js"></script>
+
+</body>
+</html>
