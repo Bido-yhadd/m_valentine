@@ -1,5 +1,5 @@
 window.config = {
-    correctPassword: "bWljaGVsbGU=" // Example Base64 encoded password ("michelle")
+    correctPassword: "bWljaGVsbGU=" 
 };
 
 function checkPassword() {
