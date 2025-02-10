@@ -13,17 +13,38 @@
 
     <div id="login">
         <h2>🔒 Bitte Passwort eingeben:</h2>
-        <input type="password" id="passwordInput" placeholder="Passwort">
+        <input type="password" id="passwordInput" placeholder="Passwort" onkeydown="checkEnter(event)">
         <button onclick="checkPassword()">Login</button>
         <p id="errorMessage" style="color: red; display: none;">❌ Falsches Passwort!</p>
     </div>
 
     <div id="content">
         <h1>Willkommen! 🎉</h1>
-        <p>Hier ist der geheime Inhalt.</p>
+        <p>Michelle, liebe dich.</p>
     </div>
 
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            var correctPassword = window.config.correctPassword;
+
+            if (btoa(password) === correctPassword) {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+
+        // Event listener for "Enter" key press to submit the password
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        }
+    </script>
     <script src="password.js"></script>
 
 </body>
 </html>
+
