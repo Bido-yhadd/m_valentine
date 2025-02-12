@@ -4,47 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geschützte Seite</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        #content { display: none; } /* Versteckt den Inhalt, bis das Passwort eingegeben wurde */
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-
+    <div id="firstbackground">
     <div id="login">
         <h2>🔒 Bitte Passwort eingeben:</h2>
         <input type="password" id="passwordInput" placeholder="Passwort" onkeydown="checkEnter(event)">
         <button onclick="checkPassword()">Login</button>
         <p id="errorMessage" style="color: red; display: none;">❌ Falsches Passwort!</p>
     </div>
+</div>
 
     <div id="content">
-        <h1>Willkommen! 🎉</h1>
-        <p>Michelle, liebe dich.</p>
+        <h1>Willkommen, sehr geehrte Frau! 🎉</h1>
+        <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:xx-large;font-weight: bold;">Mi alma gemella.</p>
+
+        <div id="valentineRequest">
+            <h2>💖 Eine wichtige Frage... 💖</h2>
+            <p>Würdest du meine Valentine sein? 😍</p>
+            <p>Ik, sehr cringe....</p>
+            
+
+            <div id="yesButton">
+                <button onclick="answerQuestion('yes')">Ja</button>
+            </div>
+            <div id="noButton">
+                <button onmouseover="answerQuestion('no')">Nein</button>
+            </div>
+            <div>
+                <img src="cute_bear.jpg" alt="Cute Bear">
+            </div>
+        </div>
     </div>
 
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("passwordInput").value;
-            var correctPassword = window.config.correctPassword;
-
-            if (btoa(password) === correctPassword) {
-                document.getElementById("login").style.display = "none";
-                document.getElementById("content").style.display = "block";
-            } else {
-                document.getElementById("errorMessage").style.display = "block";
-            }
-        }
-
-        // Event listener for "Enter" key press to submit the password
-        function checkEnter(event) {
-            if (event.key === "Enter") {
-                checkPassword();
-            }
-        }
-    </script>
+   
     <script src="password.js"></script>
+    <script src="Questionbutton.js"></script>
 
 </body>
 </html>
+
 
